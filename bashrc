@@ -1,14 +1,5 @@
 # Path Settings
 
-   # MacPorts path variables
-   export PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:$PATH
-
-   # Java
-   export PATH=$PATH:/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home/bin/
-   export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-   # MySQL path
-   export PATH=/opt/local/lib/mysql56/bin:$PATH
-
    # Personal code path
    export PATH=~/bin:$PATH
 
@@ -27,6 +18,9 @@
    EDITOR=vim
    PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \$ '
    eval `dircolors $( dirname ${BASH_SOURCE[0]})/dir_colors`
+
+   # extended patterns! Look at all the regular expressions we can use!
+   shopt -s extglob
 
 # Functions
 
