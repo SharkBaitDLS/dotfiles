@@ -26,7 +26,7 @@
    HISTCONTROL=ignoredups
    EDITOR=vim
    PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \$ '
-   eval `dircolors ./dir_colors`
+   eval `dircolors $( dirname ${BASH_SOURCE[0]})/dir_colors`
 
 # Functions
 
