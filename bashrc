@@ -5,11 +5,10 @@
 
 # Aliases
 
-   alias reload='source ~/.profile'
+   alias reload='source ~/.bashrc'
    alias bye='logout'
    alias logotu='logout'
    alias ls='ls --color=auto'
-   alias java6='/usr/libexec/java_home -v "1.6.*"'
    alias clean='make clean'
 
 # Other Settings
