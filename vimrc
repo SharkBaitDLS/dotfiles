@@ -1,20 +1,18 @@
-if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-   set fileencodings=ucs-bom,utf-8,latin1
-endif
-
 augroup vimrc_autocmds
    autocmd BufReadPost,BufNewFile * hi OverLength ctermbg=darkred ctermfg=gray
    autocmd BufReadPost,BufNewFile * match OverLength /\%81v.\+/
    autocmd BufReadPost,BufNewFile * set ff=unix
+   autocmd BufReadPost,BufNewFile * normal zx
 augroup END
 
 hi VertSplit none
-hi StatusLine cterm=none ctermbg=black ctermfg=green
-hi StatusLineNC cterm=none ctermbg=black ctermfg=darkcyan
-hi Folded ctermbg=none ctermfg=darkcyan
-hi FoldColumn ctermbg=none ctermfg=darkcyan
-hi LineNr ctermbg=none ctermfg=237
 hi Visual cterm=reverse ctermbg=black
+hi StatusLine cterm=bold ctermbg=232 ctermfg=green
+hi StatusLineNC cterm=reverse ctermfg=232 ctermbg=cyan
+hi Folded ctermbg=none ctermfg=darkcyan
+hi LineNr ctermfg=238
+hi FoldColumn ctermfg=darkcyan ctermbg=black
+hi Todo cterm=none ctermfg=021 ctermbg=none
 
 set t_Co=256
 set fcs+=vert:│
