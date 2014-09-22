@@ -6,6 +6,7 @@ augroup vimrc_autocmds
 augroup END
 
 hi VertSplit none
+hi OverLength none
 hi Visual cterm=reverse ctermbg=black
 hi StatusLine cterm=bold ctermbg=232 ctermfg=green
 hi StatusLineNC cterm=reverse ctermfg=232 ctermbg=cyan
