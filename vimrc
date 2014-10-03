@@ -12,7 +12,7 @@ hi StatusLine cterm=bold ctermbg=232 ctermfg=green
 hi StatusLineNC cterm=reverse ctermfg=232 ctermbg=cyan
 hi Folded ctermbg=none ctermfg=darkcyan
 hi LineNr ctermfg=238
-hi FoldColumn ctermfg=darkcyan ctermbg=black
+hi FoldColumn ctermfg=darkcyan ctermbg=none
 hi Todo cterm=none ctermfg=021 ctermbg=none
 
 set t_Co=256
