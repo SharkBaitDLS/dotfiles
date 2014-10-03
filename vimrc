@@ -1,6 +1,4 @@
 augroup vimrc_autocmds
-   autocmd BufReadPost,BufNewFile * hi OverLength ctermbg=darkred ctermfg=gray
-   autocmd BufReadPost,BufNewFile * match OverLength /\%81v.\+/
    autocmd BufReadPost,BufNewFile * set ff=unix
    autocmd BufReadPost,BufNewFile * normal zx
 augroup END
