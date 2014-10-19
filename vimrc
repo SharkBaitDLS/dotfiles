@@ -3,6 +3,7 @@ augroup vimrc_autocmds
    autocmd BufReadPost,BufNewFile * normal zx
 augroup END
 
+hi VertSplit none
 hi OverLength none
 hi Visual cterm=reverse ctermbg=black
 hi StatusLine cterm=bold ctermbg=232 ctermfg=green
