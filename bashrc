@@ -28,14 +28,21 @@
       $2 "/.../" $NF; else print $1 "/" $2 "/" $NF; } \
       else print $0;}'"'"')'
 
-   if [ -z "$SSH_CLIENT" ]
-   then
-      PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]$(eval \
-         "echo ${PS1PATH}")\[\033[00m\] \$ '
-   else
-      PS1='\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]$(eval \
-         "echo ${PS1PATH}")\[\033[00m\] \$ '
-   fi
+   create_ps1() {
+      local owned_processes='\[\033[0;31m\]$(if [ $(echo \j) != 0 ]; then echo "[\j] "; fi)'
+
+      local host=""
+      if [ -n "$SSH_CLIENT" ]
+      then
+         host='\[\033[01;34m\]@\[\033[01;32m\]\H'
+      fi
+      local user='\[\033[01;32m\]\u'
+      local current_location='\[\033[00m\]:\[\033[01;34m\]$(eval "echo ${PS1PATH}")\[\033[00m\]'
+
+      echo ${owned_processes}${user}${host}${current_location}' \$ '
+   }
+   PS1=$(create_ps1)
+   unset create_ps1
 
    eval `dircolors $( dirname ${BASH_SOURCE[0]})/dir_colors`
 
@@ -45,8 +52,7 @@
 # Functions
 
    # who needs cd ../../ ?
-   up()
-   {
+   up() {
       local d=""
       limit=$1
       for ((i=1 ; i <= limit ; i++))
