@@ -29,7 +29,7 @@
       else print $0;}'"'"')'
 
    create_ps1() {
-      local owned_processes='\[\033[0;31m\]$(if [ $(echo \j) != 0 ]; then echo "[\j] "; fi)'
+      local owned_processes='\[\033[0;31m\]$(if [ $(echo \j) -ne 0 ]; then echo "[\j] "; fi)'
 
       local host=""
       if [ -n "$SSH_CLIENT" ]
