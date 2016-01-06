@@ -72,3 +72,11 @@
       mkdir $1
       cd $1
    }
+
+   ssh()
+   {
+      ssh=$(which ssh)
+      printf "\033]2;$1\033\\"
+      $ssh "$@"
+      printf "\033]2;$(hostname)\033\\"
+   }
