@@ -6,11 +6,8 @@
    # MacPorts
    if [ "$(uname)" == "Darwin" ]
    then
-      homedir='${PWD/#$HOME/"~"}'
       PATH=/opt/local/bin:/opt/local/sbin:/opt/local/libexec/gnubin:$PATH
       MANPATH=/opt/local/share/man:$MANPATH
-   else
-      homedir='${PWD/#$HOME/~}'
    fi
 
 # Aliases
@@ -25,11 +22,13 @@
 
    HISTCONTROL=ignoredups
    EDITOR=vim
+   homedir='${PWD/#$HOME/"~"}'
    PS1PATH='$(echo '$homedir' | awk -F "/" \
       '"'"'{if (length($0)>15) { if (NF>4) print $1 "/" $2 \
       "/.../" $(NF-1) "/" $NF; else if (NF>3) print $1 "/" \
       $2 "/.../" $NF; else print $1 "/" $2 "/" $NF; } \
       else print $0;}'"'"')'
+   unset homedir
 
    create_ps1() {
       local owned_processes='\[\033[0;31m\]$(if [ $(echo \j) -ne 0 ]; then echo "[\j] "; fi)'
