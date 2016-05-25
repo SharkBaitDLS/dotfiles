@@ -37,6 +37,10 @@ hi Folded ctermbg=none ctermfg=darkcyan
 hi LineNr ctermfg=238
 hi FoldColumn ctermfg=darkcyan ctermbg=none
 hi Todo cterm=none ctermfg=021 ctermbg=none
+hi DiffAdd cterm=reverse ctermbg=black ctermfg=green
+hi DiffChange cterm=reverse ctermbg=black ctermfg=cyan
+hi DiffDelete cterm=reverse ctermbg=black ctermfg=red
+hi DiffText cterm=reverse ctermbg=black ctermfg=yellow
 
 syntax on
 
