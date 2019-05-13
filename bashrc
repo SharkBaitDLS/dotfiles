@@ -84,7 +84,7 @@ rename_function() {
 ssh()
 {
    local ssh=$(which ssh)
-   printf "\033]2;$1\033\\"
+   printf "\033]2;${@: -1}\033\\"
    $ssh "$@"
    printf "\033]2;$(hostname)\033\\"
 }

@@ -9,6 +9,7 @@ set cindent
 set laststatus=1
 set noignorecase
 set foldmethod=syntax
+set encoding=utf8
 set fcs+=vert:│
 set number
 set foldlevel=20
