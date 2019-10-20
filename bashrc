@@ -10,6 +10,9 @@ then
    MANPATH=/opt/local/share/man:$MANPATH
 fi
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Aliases
 
 alias reload='source ~/.bashrc'
