@@ -6,7 +6,8 @@ export PATH=~/bin:$PATH
 # MacPorts
 if [ "$(uname)" == "Darwin" ]
 then
-   PATH=/opt/local/bin:/opt/local/sbin:/opt/local/libexec/gnubin:$PATH
+   PATH=/opt/local/bin:/opt/local/sbin:$PATH:/opt/local/libexec/gnubin
+   JAVA_HOME=$(/usr/libexec/java_home)
    MANPATH=/opt/local/share/man:$MANPATH
 fi
 
@@ -17,7 +18,12 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 alias reload='source ~/.bashrc'
 alias logotu='logout'
-alias ls='ls --color=auto'
+if [ "$(uname)" == "Darwin" ]
+then
+   alias ls='gls --color=auto'
+else
+   alias ls='ls --color=auto'
+fi
 alias clean='make clean'
 
 # Other Settings
