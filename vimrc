@@ -28,6 +28,7 @@ aug END
 augroup vimrc_autocmds
    autocmd BufReadPost,BufNewFile * set ff=unix
    autocmd BufReadPost,BufNewFile * normal zx
+   au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 augroup END
 
 hi VertSplit none
