@@ -59,6 +59,12 @@ eval `dircolors $( dirname ${BASH_SOURCE[0]})/dir_colors`
 # extended patterns! Look at all the regular expressions we can use!
 shopt -s extglob
 
+# enter tmux if it exists and this isn't already a tmux session
+if [ -z "$TMUX" -a -z "$SSH_CLIENT" -a -n "$(which tmux)" ]
+then
+  tmux a -t Shell && exit 0 || tmux new -s Shell && exit 0
+fi
+
 # Functions
 
 # who needs cd ../../ ?
