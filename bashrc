@@ -24,7 +24,6 @@ then
 else
    alias ls='ls --color=auto'
 fi
-alias clean='make clean'
 
 # Other Settings
 
@@ -82,20 +81,7 @@ up() {
    cd $d
 }
 
-# makes a directory then moves into it
-mkcdr()
-{
-   mkdir $1
-   cd $1
-}
-
-
-rename_function() {
-   local orig_func=$(declare -f $1)
-   local newname_func="$2${orig_func#$1}"
-   eval "$newname_func"
-}
-
+# Update the pane name in TMUX to the SSH hostname
 ssh()
 {
    local ssh=$(which ssh)
