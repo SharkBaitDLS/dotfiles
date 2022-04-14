@@ -13,7 +13,10 @@ fi
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
-source "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo/env" ]
+then
+   source "$HOME/.cargo/env"
+fi
 
 # Aliases
 
