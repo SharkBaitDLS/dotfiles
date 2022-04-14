@@ -13,6 +13,7 @@ fi
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"
 
 # Aliases
 
@@ -58,13 +59,41 @@ eval `dircolors $( dirname ${BASH_SOURCE[0]})/dir_colors`
 # extended patterns! Look at all the regular expressions we can use!
 shopt -s extglob
 
-# enter tmux if it exists and this isn't already a tmux session
-if [ -z "$TMUX" -a -z "$SSH_CLIENT" -a -n "$(which tmux)" ]
-then
-  tmux a -t Shell && exit 0 || tmux new -s Shell && exit 0
-fi
+# -- Improved X11 forwarding through GNU Screen (or tmux).
+# If not in screen or tmux, update the DISPLAY cache.
+# If we are, update the value of DISPLAY to be that in the cache.
+update_x11_forwarding() {
+  if [ -z "$STY" -a -z "$TMUX" ]
+  then
+    echo $DISPLAY > ~/.display.txt
+  else
+    export DISPLAY=`cat ~/.display.txt`
+  fi
+}
+
+preexec() {
+  # Don't cause a preexec for PROMPT_COMMAND.
+  # Beware!  This fails if PROMPT_COMMAND is a string containing more than one command.
+  [ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return 
+
+  update_x11_forwarding
+
+  # Debugging.
+  #echo DISPLAY = $DISPLAY, display.txt = `cat ~/.display.txt`, STY = $STY, TMUX = $TMUX  
+}
+
+trap 'preexec' DEBUG
+
 
 # Functions
+
+# enter tmux if it exists and this isn't already a tmux session or an SSH client
+start_or_attach_tmux() {
+  if [ -z "$TMUX" -a -z "$SSH_CLIENT" -a -n "$(which tmux)" ]
+  then
+    tmux new -A -s Shell && exit 0
+  fi
+}
 
 # who needs cd ../../ ?
 up() {
