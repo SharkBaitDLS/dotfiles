@@ -3,6 +3,9 @@
 # Personal code path
 export PATH=~/bin:$PATH
 
+# GPG Signing Setup
+export GPG_TTY=$(tty)
+
 # MacPorts
 if [ "$(uname)" == "Darwin" ]
 then
