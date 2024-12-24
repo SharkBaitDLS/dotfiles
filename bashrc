@@ -31,6 +31,7 @@ then
 else
    alias ls='ls --color=auto'
 fi
+alias gw='./gradlew'
 
 # Other Settings
 
