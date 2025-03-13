@@ -5,8 +5,7 @@ export GPG_TTY=$(tty)
 if [ "$(uname)" == "Darwin" ]
 then
    JAVA_HOME=$(/usr/libexec/java_home)
-   # MacPorts conflicts with the system-installed iconv
-   ICONV_INCLUDE_DIR="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/"
+   PKG_CONFIG_PATH=/opt/local/lib/pkgconfig
 fi
 
 # Rust
