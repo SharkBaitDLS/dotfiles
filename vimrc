@@ -31,7 +31,7 @@ augroup vimrc_autocmds
 augroup END
 
 hi VertSplit none
-hi Visual cterm=reverse ctermbg=black
+hi Visual cterm=reverse ctermbg=black ctermfg=none
 hi StatusLine cterm=bold ctermbg=none ctermfg=none
 hi StatusLineNC cterm=none ctermfg=darkcyan ctermbg=none
 hi Folded ctermbg=none ctermfg=darkcyan
