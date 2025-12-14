@@ -28,8 +28,8 @@ alias gw='./gradlew'
 
 # Other Settings
 
-HISTCONTROL=ignoredups
-EDITOR=vim
+export HISTCONTROL=ignoredups
+export EDITOR=vim
 homedir='${PWD/#$HOME/"~"}'
 PS1PATH='$(echo '$homedir' | awk -F "/" \
    '"'"'{if (length($0)>15) { if (NF>4) print $1 "/" $2 \
