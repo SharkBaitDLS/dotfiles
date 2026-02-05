@@ -89,7 +89,7 @@ trap 'preexec' DEBUG
 
 # enter tmux if it exists and this isn't already a tmux session or an SSH client
 start_or_attach_tmux() {
-  if [ -z "$TMUX" -a -z "$SSH_CLIENT" -a -n "$(which tmux)" ]
+  if [ -t 1 -a -z "$TMUX" -a -z "$SSH_CLIENT" -a -n "$(which tmux)" ]
   then
     tmux new -A -s Shell && exit 0
   fi
